@@ -1,0 +1,12 @@
+{
+    "error":
+    {
+        "missingIsError": true
+    },
+
+    "server":
+    [
+        {"host": "localhost", "port": 6379, "options": {}, "weight": 100},
+        {"host": "localhost", "port": 6389, "options": {}, "weight": 700}
+    ]
+}

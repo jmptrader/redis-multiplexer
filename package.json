@@ -1,23 +1,25 @@
 {
-  "name": "redis-multiplexer",
-  "version": "0.0.0",
-  "description": "A daemon that allows you to connect via any redis client and multiplex each command to a number of redis servers",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xenji/redis-multiplexer.git"
-  },
-  "keywords": [
-    "redis",
-    "proxy",
-    "multiplexer"
-  ],
-  "author": "Mario Mueller (xenji) <mario@xenji.com>",
-  "license": "BSD",
-  "dependencies": {
-    "redis": "0.8.1"
-  }
+    "name":"redis-multiplexer",
+    "version":"0.0.0",
+    "description":"A daemon that allows you to connect via any redis client and multiplex each command to a number of redis servers",
+    "main":"coffee server.coffee",
+    "scripts":{
+        "test":"echo \"Error: no test specified\" && exit 1"
+    },
+    "repository":{
+        "type":"git",
+        "url":"https://github.com/xenji/redis-multiplexer.git"
+    },
+    "keywords":[
+        "redis",
+        "proxy",
+        "multiplexer"
+    ],
+    "author":"Mario Mueller (xenji) <mario@xenji.com>",
+    "license":"BSD",
+    "dependencies":{
+        "redis":"0.8.1",
+        "coffee-script":"1.3.3",
+        "winston":"0.5.10"
+    }
 }
