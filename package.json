@@ -16,5 +16,8 @@
     "multiplexer"
   ],
   "author": "Mario Mueller (xenji) <mario@xenji.com>",
-  "license": "BSD"
+  "license": "BSD",
+  "dependencies": {
+    "redis": "0.8.1"
+  }
 }
