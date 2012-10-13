@@ -20,8 +20,8 @@ module.exports = class Multiplexer
         clnt = redis.createClient(srv.port, srv.host, srv.options)
 
         if srv.primary is false
-          logger.debug "Selected #{srv.host}:#{srv.port} as secondary"
-          @conns[srv.weight] = clnt
+          logger.debug "Selected #{srv.host}:#{srv.port} as secondary",
+          @conns.push clnt
 
         if srv.primary is true
           logger.debug "Elected #{srv.host}:#{srv.port} as primary"
@@ -31,18 +31,18 @@ module.exports = class Multiplexer
         logger.error(except)
         #throw except if config.error.missingIsError == true
 
-
   send: (command, callback) ->
-    logger.debug "Sending command #{command} to prime"
+    logger.debug "Sending command to prime"
     @primeConn.sendRaw command, callback
 
-    logger.debug "Sending command #{command} to each secondary"
+    logger.debug "Sending command to each secondary"
+
     for conn in @conns
-      conn.sendRaw command (err, res) ->
+      conn.sendRaw command, (err, res) ->
         if err
           logger.error "Got error from secondary", err
 
         if res
-          logger.info "Received result from secondary"
+          logger.info "Received response from secondary"
 
     return

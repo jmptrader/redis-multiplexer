@@ -24,9 +24,10 @@ server = net.createServer (socket) ->
     command = data.toString('utf8')
     multiplexer.send command, (err, res) ->
       if err
-        logger.error err
+        logger.error "Got error from primary", err
 
       if res
+        logger.info "Got response from primary"
         socket.write res
 
       if /quit/i.test(data)
