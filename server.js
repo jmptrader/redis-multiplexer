@@ -15,6 +15,8 @@ listenPort = config.listen_port || process.env.PORT;
 
 server = net.createServer(function (socket) {
     var multiplexer;
+    var _socket = socket;
+
     logger.debug('Client connected. Init Multiplexer for config');
     multiplexer = new Multiplexer(config);
     multiplexer.initConnections();
@@ -36,11 +38,11 @@ server = net.createServer(function (socket) {
             }
             if (res) {
                 logger.info("Got response from primary");
-                socket.write(res.toString('utf8'));
+                _socket.write(res.toString('utf8'));
             }
             if (/quit/i.test(data)) {
                 logger.debug('QUIT command received closing the connection');
-                socket.end();
+                _socket.end();
             }
         });
     });

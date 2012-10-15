@@ -1,4 +1,7 @@
 {
+    "bind_address": "127.0.0.1",
+    "listen_port": 6000,
+
     "error":
     {
         "missingIsError": true
@@ -7,26 +10,18 @@
     "server":
     [
         {
-            "host": "50.30.35.9", 
-            "port": 2827, 
+            "host": "127.0.0.1", 
+            "port": 6001, 
             "options": {},
-            "auth": "5ceacd4e963c2b75464ff18c69606aa0",
-            "primary": false
-        },
-        
-        {
-            "host": "78.47.60.125", 
-            "port": 6379, 
-            "options": {}, 
             "auth": "",
             "primary": true
         },
         
         {
-            "host": "50.30.35.9", 
-            "port": 2791, 
-            "options": {}, 
-            "auth": "439cec6c1e32e7bc7ee6ff300f68054e",
+            "host": "127.0.0.1", 
+            "port": 6002, 
+            "options": {},
+            "auth": "",
             "primary": false
         }
     ]
