@@ -10,8 +10,8 @@ Multiplexer = require('./lib/multiplexer');
 configFile = process.argv[2] || "config/config.json";
 logger.info("using " + configFile + " as configuration source");
 config = JSON.parse(fs.readFileSync(configFile));
-bindAddress = config.bind_address || "127.0.0.1";
-listenPort = config.listen_port || 6000;
+bindAddress = config.bind_address || process.env.IP;
+listenPort = config.listen_port || process.env.PORT;
 
 server = net.createServer(function (socket) {
     var multiplexer;
@@ -25,8 +25,7 @@ server = net.createServer(function (socket) {
     });
 
     socket.on('data', function (data) {
-        var command, onlymaster;
-        command = data.toString('utf8');
+        var command = data.toString('utf8');
 
         logger.debug("command: " + command);
 

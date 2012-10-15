@@ -1,7 +1,4 @@
 {
-    "bindAddress": "127.0.0.1",
-    "listenPort": 6000,
-
     "error":
     {
         "missingIsError": true
@@ -9,7 +6,28 @@
 
     "server":
     [
-        {"host": "localhost", "port": 6379, "options": {}, "primary": true},
-        {"host": "78.47.60.125", "port": 6379, "options": {}, "primary": false}
+        {
+            "host": "50.30.35.9", 
+            "port": 2827, 
+            "options": {},
+            "auth": "5ceacd4e963c2b75464ff18c69606aa0",
+            "primary": false
+        },
+        
+        {
+            "host": "78.47.60.125", 
+            "port": 6379, 
+            "options": {}, 
+            "auth": "",
+            "primary": true
+        },
+        
+        {
+            "host": "50.30.35.9", 
+            "port": 2791, 
+            "options": {}, 
+            "auth": "439cec6c1e32e7bc7ee6ff300f68054e",
+            "primary": false
+        }
     ]
 }
