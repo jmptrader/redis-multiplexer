@@ -1,5 +1,7 @@
-var Multiplexer, bindAddress, config, configFile, fs, listenPort, logger, net, redis, server;
+/*global require console process*/
+/*jslint indent:4*/
 
+var Multiplexer, bindAddress, config, configFile, fs, listenPort, logger, net, redis, server;
 fs = require('fs');
 net = require('net');
 logger = require('winston');
